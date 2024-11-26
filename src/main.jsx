@@ -1,27 +1,13 @@
-// import { StrictMode } from 'react'
-// import { StrictMode } from 'react'
-// import { createRoot } from 'react-dom/client'
-// import './index.css'
-// import App from './App.jsx'
-// import {
-//   createBrowserRouter,
-//   RouterProvider,
-// } from "react-router-dom";
 
-// const router = createBrowserRouter([
-//   {
-//     path: "/",
-//     element: <App/>,
-//   },
-// ]);
-// createRoot(document.getElementById('root')).render(
-//   <RouterProvider router={router} />
-// )
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 
 import 'swiper/css';
+
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
 
 // bootstrap css
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -55,7 +41,7 @@ const router = createBrowserRouter([
   },
 ]);
 createRoot(document.getElementById('root')).render(
-  // <StrictMode>
+  <React.StrictMode>
     <RouterProvider router={router} />
-  /* </StrictMode> */
+  </React.StrictMode>
 )

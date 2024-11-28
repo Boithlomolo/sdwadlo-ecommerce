@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import Ratting from '../components/Ratting';
 import { Link } from 'react-router-dom';
 
@@ -81,21 +81,25 @@ const ProductData = [
 
 const ShowCaseCategory = () => {
     const [items, setItems] = useState(ProductData);
-    const filterItem = () => {
-
-    }
+    //category baded filtering
+    const filterItem = (categItem) => {
+        const updateItems=ProductData.filter((curElem)=>{
+            return curElem.cate=== categItem;
+        });
+        setItems(updateItems);
+    };
     {/*bacground images*/ }
-    return <div className="course-section style-3 padding-tb">
-        <div className="course-shape one"><img src="/src/assets/images/shape-img/icon/01.png" alt=""></img></div>
-        <div className="course-shape two"><img src="/src/assets/images/shape-img/icon/02.png" alt=""></img></div>
+    return (<div className="course-section style-3 padding-tb">
+        <div className="course-shape one"><img src="/src/assets/images/shape-img/icon/01.png" alt=""/></div>
+        <div className="course-shape two"><img src="/src/assets/images/shape-img/icon/02.png" alt=""/></div>
         {/*main section*/}
         <div className="container">
             {/*header*/}
-            <div className="header">
+            <div className="section-header">
                 <h2 className="title">{title}</h2>
                 <div className="course-filter-group">
                     <ul className="lab-ul">
-                        <li onClick={() => filterItem("All")}>All</li>
+                        <li onClick={() => setItems(ProductData)}>All</li>
                         <li onClick={() => filterItem("T-Shirts")}>T-Shirts</li>
                         <li onClick={() => filterItem("Pants")}>Pants</li>
                         <li onClick={() => filterItem("Bags")}>Bags</li>
@@ -107,7 +111,7 @@ const ShowCaseCategory = () => {
             </div>
             {/*section body*/}
             <div className="section-wrapper">
-                <div>
+                <div className="row g-4 justify-content-center row-cols-lg-3 row-cols-md-2 row-cols-1 course-filter">
                     {
                         items.map((product) => <div key={product.id} className="col">
                             <div className="course-item style-4">
@@ -143,7 +147,7 @@ const ShowCaseCategory = () => {
             </div>
         </div>
     </div>
-
+    );
 };
 
 export default ShowCaseCategory;
